@@ -52,6 +52,15 @@ function App() {
     } else return cb();
   }
 
+  function returnForm() {
+    return (
+      <Form
+        itemForm={newBookForm}
+        isDescriptionRequired={selectedSubGenre.isDescriptionRequired}
+      />
+    );
+  }
+
   const handleNext = () => {
     if (step === 1) isEmptyObj(selectedGenre, () => setStep(2));
     if (step === 2) {
@@ -170,18 +179,7 @@ function App() {
           </form>
         )}
 
-        {step === 3 && !addNew && (
-          <Form
-            itemForm={newBookForm}
-            isDescriptionRequired={selectedSubGenre.isDescriptionRequired}
-          />
-        )}
-        {step > 3 && addNew && (
-          <Form
-            itemForm={newBookForm}
-            isDescriptionRequired={selectedSubGenre.isDescriptionRequired}
-          />
-        )}
+        {(step === 3 && !addNew) || (step > 3 && addNew) ? returnForm() : null}
 
         <div className="button-container mt-3">
           {step > 1 && (
