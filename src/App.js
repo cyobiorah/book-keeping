@@ -26,7 +26,7 @@ function App() {
 
   const newBookForm = useForm({
     mode: "onChange",
-    shouldUnregister: true,
+    // shouldUnregister: true,
   });
 
   const {
@@ -83,6 +83,7 @@ function App() {
     setComplete(false);
     dispatch(addSelectedGenre({}));
     dispatch(addSelectedSubGenre({}));
+    newBookForm.reset();
   };
 
   async function onSubmit(data) {
