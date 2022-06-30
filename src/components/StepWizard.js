@@ -1,7 +1,5 @@
-import { useEffect } from "react";
-
 const StepWizard = ({ step, addNew }) => {
-  function checkParams() {
+  function checkStep() {
     if (!addNew && step === 3) {
       return null;
     }
@@ -13,10 +11,10 @@ const StepWizard = ({ step, addNew }) => {
               step === 3 ? "completed" : "incomplete"
             } step-counter`}
           >
-            {addNew && step === 3 ? "3" : "..."}
+            {addNew && step >= 3 ? "3" : "..."}
           </div>
           <p className="step-name">
-            {addNew && step === 3 ? "Add new subgenre" : ""}
+            {addNew && step >= 3 ? "Add new subgenre" : ""}
           </p>
         </div>
         {step > 2 && (
@@ -26,6 +24,12 @@ const StepWizard = ({ step, addNew }) => {
         )}
       </div>
     );
+  }
+
+  function returnClass() {
+    if (step === 4) return "completed";
+    if (step >= 3 && !addNew) return "completed";
+    return "incomplete";
   }
 
   return (
@@ -60,15 +64,11 @@ const StepWizard = ({ step, addNew }) => {
           <hr className="hr-line" />
         </div>
       </div>
-      {checkParams()}
-      {step === 3 && (
+      {checkStep()}
+      {(step === 3 || step === 4) && (
         <div className="stepper-item">
           <div className="step-container">
-            <div
-              className={`${
-                step === 3 && !addNew ? "completed" : "incomplete"
-              } step-counter`}
-            >
+            <div className={`${returnClass()} step-counter`}>
               {addNew ? "4" : "3"}
             </div>
             <p className="step-name">Information</p>

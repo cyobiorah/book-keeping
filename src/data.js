@@ -1,5 +1,3 @@
-import React from "react";
-
 export const genres = [
   {
     id: 1,
@@ -107,5 +105,3 @@ export const genres = [
     ],
   },
 ];
-
-export const GenreContext = React.createContext(genres);

@@ -7,8 +7,20 @@
 .container {
   padding: 5rem 20rem;
 
+  .mr-1 {
+    margin-right: 1rem;
+  }
+
   .mb-1 {
     margin-bottom: 1rem;
+  }
+
+  .mb-2 {
+    margin-bottom: 2rem;
+  }
+
+  .mt-1 {
+    margin-top: 1rem;
   }
 
   .mt-2 {
@@ -59,6 +71,35 @@
   .btn.active {
     background: #534f4f;
     color: #fff;
+  }
+
+  .form-group {
+    width: 100%;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: gray;
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+    }
+
+    .input {
+      padding: 5px;
+      height: 2.5rem;
+      border: 1px solid gray;
+      border-radius: 5px;
+    }
+
+    input.error,
+    textarea.error {
+      border-color: red !important;
+    }
   }
 
   .wrapper {

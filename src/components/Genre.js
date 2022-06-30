@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import { GenreContext } from "../data";
+import { useSelector } from "react-redux";
 
 const Genre = ({ selectedGenre, handleSelectGenre }) => {
-  const genres = useContext(GenreContext);
+  const { genres } = useSelector((state) => state.appSlice);
   return (
     <div className="genres-wrapper mt-3">
       {genres.map((gen) => (
